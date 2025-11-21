@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property First | November 2025 Briefing</title>
+<style>
+    body { 
+        font-family: 'Lato', sans-serif; 
+        margin:0; 
+        padding:0; 
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color:#0A1F44; 
+    }
+    .container { 
+        max-width: 800px; 
+        margin: auto; 
+        background:#FFFFFF; 
+        padding:30px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+    }
+    .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: linear-gradient(90deg, #0066cc, #00aaff);
+    }
+    h1, h2, h3 { 
+        font-family: 'Montserrat', sans-serif; 
+        color:#0A1F44; 
+        margin-bottom:10px; 
+    }
+    h1 { 
+        font-size:32px; 
+        font-weight: 700;
+        text-align: center;
+        background: linear-gradient(90deg, #0066cc, #00aaff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 5px;
+    }
+    h2 { 
+        font-size:24px; 
+        margin-top: 25px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #eaeaea;
+        display: flex;
+        align-items: center;
+    }
+    h2::before {
+        content: "";
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        background-color: #0066cc;
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 36px;
+        margin-right: 12px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    h2:nth-of-type(1)::before { content: "✓"; }
+    h2:nth-of-type(2)::before { content: "✓"; }
+    h2:nth-of-type(3)::before { content: "✓"; }
+    h2:nth-of-type(4)::before { content: "✓"; }
+    h2:nth-of-type(5)::before { content: "✓"; }
+    h2:nth-of-type(6)::before { content: "✓"; }
+    h2:nth-of-type(7)::before { content: "✓"; }
+    h2:nth-of-type(8)::before { content: "✓"; }
+    h2:nth-of-type(9)::before { content: "✓"; }
+    
+    
+    h3 { 
+        font-size:18px; 
+        margin-top: 0;
+    }
+    p { 
+        line-height:1.6; 
+        margin:10px 0; 
+    }
+    .section { 
+        margin-bottom:35px; 
+    }
+    .highlight-gold { 
+        background:#FFD700; 
+        padding:5px 10px; 
+        border-radius:4px; 
+        display:inline-block; 
+        color:#0A1F44; 
+        font-weight:bold; 
+    }
+    .highlight-blue { 
+        background:#0066cc; 
+        padding:5px 10px; 
+        border-radius:4px; 
+        display:inline-block; 
+        color:#FFFFFF; 
+        font-weight:bold; 
+    }
+    .highlight-gray { 
+        background:#E0E0E0; 
+        padding:5px 10px; 
+        border-radius:4px; 
+        display:inline-block; 
+        color:#0A1F44; 
+        font-weight:bold; 
+    }
+    .card { 
+        border:1px solid #DDD; 
+        border-radius:8px; 
+        padding:20px; 
+        margin-bottom:20px; 
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+       
+    }
+    .card-editor { 
+        border:1px solid #DDD; 
+        border-radius:8px; 
+        padding:20px; 
+        margin-bottom:20px; 
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+    }
+     .card-image {
+        width: 40%;
+        background-size: cover;
+        background-position: center;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .grid { 
+        display:grid; 
+        grid-template-columns:1fr 1fr; 
+        gap:20px; 
+    }
+    .table { 
+        width:100%; 
+        border-collapse:collapse; 
+        margin-top:10px; 
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .table th, .table td { 
+        border:1px solid #DDD; 
+        padding:12px; 
+        text-align:left; 
+    }
+    .table th {
+        background-color: #0066cc;
+        color: white;
+        font-weight: 600;
+    }
+    .table tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+    .cta-btn { 
+        display:inline-block; 
+        background:#0066cc; 
+        color:#FFFFFF; 
+        text-decoration:none; 
+        padding:12px 25px; 
+        border-radius:6px; 
+        font-weight:bold; 
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0,102,204,0.2);
+    }
+    .cta-btn:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,102,204,0.3);
+    }
+    .footer { 
+        font-size:12px; 
+        color:#555; 
+        text-align:center; 
+        margin-top:30px; 
+        padding-top: 20px;
+        border-top: 1px solid #eaeaea;
+    }
+    .header-image {
+        width: 100%;
+        height: 300px;
+        background-image: url('./images/banner-image.png');
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        margin: 20px 0;
+        position: relative;
+    }
+    .header-image::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(0,102,204,0.2), rgba(0,170,255,0.3));
+        border-radius: 8px;
+    }
+    .market-image {
+        width: 100%;
+        height: 120px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 6px;
+        margin-bottom: 10px;
+    }
+    .card:nth-child(1) .market-image {
+        background-image: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');
+    }
+    .card:nth-child(2) .market-image {
+        background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');
+    }
+    .card:nth-child(3) .market-image {
+        background-image: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');
+    }
+    .card:nth-child(4) .market-image {
+        background-image: url('https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');
+    }
+    .stats-container {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        text-align: center;
+    }
+    .stat-item {
+        padding: 15px;
+    }
+    .stat-value {
+        font-size: 28px;
+        font-weight: 700;
+        color: #0066cc;
+        display: block;
+    }
+    .stat-label {
+        font-size: 14px;
+        color: #666;
+    }
+    @media (max-width: 768px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+        .container {
+            padding: 20px;
+        }
+        .stats-container {
+            flex-direction: column;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<!-- Header -->
+<div class="section" style="text-align:center;">
+    <img src="./images/LOGO.png" style="width: 120px; height: auto;"/>
+    <!-- <h1>Property First</h1> -->
+    <p style="font-weight: 500; margin-bottom: 25px;"><strong style="margin-bottom: 15px;">November 2025 Edition</strong><br>Data-led & Insight-driven. Curated for homebuyers & investors.</p>
+    <div class="header-image"></div>
+</div>
+
+<!-- Stats Section -->
+<!-- <div class="section">
+    <div class="stats-container">
+        <div class="stat-item">
+            <span class="stat-value">2.8%</span>
+            <span class="stat-label">Avg. Appreciation</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">4.8%</span>
+            <span class="stat-label">Avg. Rental Yield</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">11%</span>
+            <span class="stat-label">NRI Demand Growth</span>
+        </div>
+    </div>
+</div> -->
+
+<!-- Opening Note -->
+<div class="section">
+    <h2>Opening Note</h2>
+    <p>Real estate decisions reward clarity and timing. This month's briefing covers micro-markets showing strong fundamentals, rental trends, and upcoming infrastructure shaping returns. Whether you're buying your first home or making a strategic investment, every insight helps you make informed and risk-aware choices.</p>
+</div>
+
+<!-- Market Intelligence -->
+<div class="section">
+    <h2>Market Intelligence</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="market-image"></div>
+            <h3>North Bengaluru</h3>
+            <p>2.8% appreciation. Metro 2B & commercial absorption.<br> Ideal for <span class="highlight-blue">Investors</span> & <span class="highlight-gray">Homebuyers</span>.</p>
+        </div>
+        <div class="card">
+            <div class="market-image"></div>
+            <h3>East Bengaluru</h3>
+            <p>Stable prices and strong rental demand make this location a low-risk investment.<br> Ideal for <span class="highlight-gray">Homebuyers</span> & <span class="highlight-blue">Investors</span>.</p>
+        </div>
+        <div class="card">
+            <div class="market-image"></div>
+            <h3>Sarjapur Belt</h3>
+            <p>High occupancy rates (80–95%) ensure consistent monthly income.<br> Ideal for <span class="highlight-gray">Homebuyers</span> & <span class="highlight-blue">Investors</span>.</p>    </div>
+        <div class="card">
+            <div class="market-image"></div>
+            <h3>Whitefield / ORR</h3><p>Growing commercial development boosts long-term appreciation.<br> Ideal for <span class="highlight-gray">Homebuyers</span> & <span class="highlight-blue">Investors</span>.</p>    </div>
+    </div>
+</div>
+
+<!-- Signals -->
+<div class="section">
+    <h2>Signals</h2>
+    <div class="grid">
+        <div class="card" style="border: #0052a3 2px solid;">
+            <h3>Investor Trends</h3>
+          <div>
+              <p><span style="font-size: 20px; margin-right: 10px;">•</span>NRI demand ↑11% YoY</p>
+                <p><span style="font-size: 20px; margin-right: 10px;">•</span>High-end projects oversubscribed</p>
+                <p><span style="font-size: 20px; margin-right: 10px;">•</span>End-user heavy areas = lower volatility</p>
+          </div>
+        </div>
+        <div class="card" style="background:#E0E0E0;">
+            <h3>Homebuyer Trends</h3>
+            <div>
+                <p><span style="font-size: 20px; margin-right: 10px;">•</span>Ready-to-move apartments & mid-segment villas in demand</p>
+                <p><span style="font-size: 20px; margin-right: 10px;">•</span>Close to schools, IT hubs & transport</p>
+                <p><span style="font-size: 20px; margin-right: 10px;">•</span>Early-buyer price advantages in select micro-markets</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Micro Markets -->
+<div class="section">
+    <h2>High-Potential Micro Markets</h2>
+    <div class="card">
+        <h3>Hennur–Bagalur Belt (North Bengaluru)</h3>
+        <p><span class="highlight-blue">Investor:</span> 8–11% projected appreciation</p>
+        <p><span class="highlight-gray">Homebuyer:</span> Family villas with school & workplace connectivity</p>
+    </div>
+    <div class="card">
+        <h3>Varthur–Gunjur Corridor (East Bengaluru)</h3>
+        <p><span class="highlight-blue">Investor:</span> Rental yields 3.8–5.1%, low volatility</p>
+        <p><span class="highlight-gray">Homebuyer:</span> Modern amenities, upcoming infrastructure</p>
+    </div>
+</div>
+
+<!-- Rental Trends Table -->
+<div class="section">
+    <h2>Rental Trends & Asset Watch</h2>
+    <table class="table">
+        <tr>
+            <th>Area</th>
+            <th>Yield %</th>
+            <th>Recommended For</th>
+        </tr>
+        <tr><td>Whitefield</td><td>5.0–5.4%</td><td>Investors & Homebuyers</td></tr>
+        <tr><td>Bellandur / ORR</td><td>4.8–5.2%</td><td>Investors & Families</td></tr>
+        <tr><td>Thanisandra</td><td>4.5–4.9%</td><td>Families & Young Professionals</td></tr>
+        <tr><td>Sarjapur Road</td><td>4.2–4.6%</td><td>Investors & Homebuyers</td></tr>
+    </table>
+</div>
+
+<!-- Editor's Picks -->
+<div class="section">
+    <h2>Editor's Picks</h2>
+   <div class="card-editor">
+        <div class="card-content">
+            <h3>L&T Elara Celestia</h3>
+            <p><span class="highlight-blue">Investor:</span> Mid- to long-term appreciation</p>
+            <p><span class="highlight-gray">Homebuyer:</span> Ready-to-move options</p>
+        </div>
+        <div class="card-image" style="background-image: url('./images/lnt-elara-celestia-2440-1390_720.jpg')"></div>
+    </div>
+    <div class="card-editor">
+        <div class="card-content">
+            <h3>Nambiar Ellegenza</h3>
+            <p><span class="highlight-blue">Investor:</span> Premium tenant profile, long-term value</p>
+            <p><span class="highlight-gray">Homebuyer:</span> Family-friendly living, schools & amenities nearby</p>
+        </div>
+        <div class="card-image" style="background-image: url('./images/nambiar-ellegenza-phase-2_720.jpg')"></div>
+    </div>
+    <div class="card-editor">
+        <div class="card-content">
+            <h3>Total Environment Down By The Water</h3>
+            <p><span class="highlight-blue">Investor:</span> High desirability, low risk</p>
+            <p><span class="highlight-gray">Homebuyer:</span> Premium lifestyle community, ready-to-enjoy living</p>
+        </div>
+        <div class="card-image" style="background-image: url('./images/down-by-the-water-apartment-in-jakkur-lake-north-bangalore-banner-image_720.png')"></div>
+    </div>
+</div>
+
+<!-- Regulatory & Infrastructure -->
+<div class="section">
+    <h2>Regulatory & Finance</h2>
+    <div class="card">
+        <p>TDS Rules 2025: 1% on purchases above ₹50L. NRI sellers: 20–30%. Deposit via Form 26QB. Check DTAA applicability for NRI transactions.</p>
+        <p><span class="highlight-gray">Homebuyer Tip:</span> Watch compliance if buying pre-sale or from NRI sellers.</p>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Infrastructure Impact</h2>
+    <div class="card">
+        <ul>
+            <li>Metro Phase 2B → North BLR absorption</li>
+            <li>PRR → East & North growth</li>
+            <li>Bagalur–Thanisandra widening → Villas & premium communities</li>
+            <li>Varthur–Gunjur upgrade → Faster ORR access</li>
+        </ul>
+    </div>
+</div>
+
+<!-- CTA / Ask -->
+<div class="section" style="text-align:center;">
+    <h2>Ask Property First</h2>
+    <p>Want expert guidance on choosing the right project, tower, unit, or investment strategy? Reach out to us and we’ll connect one on one to discuss your requirement in detail.</p>
+    <a class="cta-btn" href="#">Get in Touch →</a>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    Property First provides unbiased investment & homebuying guidance backed by real market data. No obligations—just clarity.
+</div>
+</div>
+</body>
+</html>
